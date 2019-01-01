@@ -2,7 +2,8 @@ import '../lib/react-ui-tree.css';
 import './theme.css';
 import './app.css';
 import cx from 'classnames';
-import { h, render, Component } from 'preact'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Tree from '../lib/react-ui-tree.js';
 import tree from './tree';
 import packageJSON from '../package.json';
@@ -70,4 +71,4 @@ class App extends Component {
   };
 }
 
-render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
