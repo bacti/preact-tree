@@ -22,34 +22,28 @@ let options =
                 exclude: /node_modules/,
                 query:
                 {
-                    presets: ['es2015', 'react', 'stage-0'],
+                    presets: ['es2015', 'stage-0', 'preact'],
                 }
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [{ loader: 'ifdef-loader', 
-                options:
-                {
-                    DEBUG: process.env.ADS_TYPE == 'DEBUG',
-                }
-                }]
             },
             {
                 test: /\.glsl$/,
                 loader: 'webpack-glsl-loader'
             },
             {
+                test: /\.(vert|frag)$/,
+                loader: 'raw-loader',
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
             },
             {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                test: /\.(css|scss)$/,
+                loader: 'style-loader!css-loader!sass-loader',
             },
             {
                 test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-                loader: 'file-loader'
+                loader: 'file-loader',
             }
         ]
     },
