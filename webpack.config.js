@@ -5,7 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 let options =
 {
-    entry: './js/main.js',
+    entry: './example/app.js',
     output:
     {
         path: path.resolve(__dirname, '.release'),
@@ -23,7 +23,6 @@ let options =
                 query:
                 {
                     presets: ['es2015', 'react', 'stage-0'],
-                    plugins: ['transform-decorators-legacy'],
                 }
             },
             {
@@ -63,7 +62,7 @@ let options =
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin(
         {
-            template: 'index.html',
+            template: 'example/index.html',
             inject: 'body',
         }),
     ],
